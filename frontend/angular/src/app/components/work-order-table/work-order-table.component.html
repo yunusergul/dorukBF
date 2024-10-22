@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="alert alert-danger" *ngIf="error">
+        {{ error }}
+    </div>
+
+    <div class="loading-spinner" *ngIf="loading">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Yükleniyor...</span>
+        </div>
+    </div>
+
+    <div class="table-responsive" *ngIf="!loading && !error">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>İş Emri No</th>
+                    <th *ngFor="let column of columns">{{ column }}</th>
+                    <th>Toplam</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let workOrder of workOrders">
+                    <td>{{ workOrder.orderNumber }}</td>
+                    <td *ngFor="let column of columns" [ngClass]="{'highlight': getDuration(workOrder, column) > 0}">
+                        {{ getDuration(workOrder, column) }}
+                    </td>
+                    <td class="font-weight-bold">{{ workOrder.total }}</td>
+                </tr>
+                <tr class="table-info">
+                    <td><strong>Toplam</strong></td>
+                    <td *ngFor="let column of columns">
+                        <strong>{{ workOrders | sum:column }}</strong>
+                    </td>
+                    <td>
+                        <strong>{{ workOrders | totalSum }}</strong>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

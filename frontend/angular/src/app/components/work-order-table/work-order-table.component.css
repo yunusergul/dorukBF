@@ -1,0 +1,37 @@
+.table-responsive {
+    margin-top: 20px;
+}
+
+.table {
+    width: 100%;
+    white-space: nowrap;
+}
+
+.table th {
+    background-color: #343a40;
+    color: white;
+    font-weight: bold;
+}
+
+.table td, .table th {
+    text-align: center;
+    padding: 12px;
+}
+
+.highlight {
+    background-color: #fc9a9a;
+}
+
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.alert {
+    margin-top: 20px;
+}
+
+.table-info {
+    background-color: #f8f9fa;
+}

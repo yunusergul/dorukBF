@@ -1,0 +1,19 @@
+server {
+    listen ${NGINX_INTERNAL_PORT};
+    server_name localhost;
+
+    location / {
+        proxy_pass http://frontend:${FRONTEND_PORT};
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    location /api/workorder/durations {
+        proxy_pass http://backend:${BACKEND_PORT}/api/workorder/durations;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}

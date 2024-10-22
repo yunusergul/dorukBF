@@ -1,0 +1,23 @@
+FROM node:20.9.0
+
+ARG FRONTEND_PORT
+ARG HOST
+ARG POLL_INTERVAL
+ARG API_URL
+
+WORKDIR /app
+
+ENV API_URL=$API_URL
+
+COPY package.json ./
+RUN npm install
+
+COPY . .
+
+EXPOSE ${FRONTEND_PORT}
+
+CMD npm run start -- \
+    --host=${HOST} \
+    --port=${FRONTEND_PORT} \
+    --poll=${POLL_INTERVAL} \
+    --disable-host-check

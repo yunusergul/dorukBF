@@ -1,0 +1,88 @@
+# IDE - General
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+.settings/
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Docker
+.docker/
+
+# .NET Core - Backend
+backend/**/bin/
+backend/**/obj/
+backend/**/*.dll
+backend/**/*.pdb
+backend/**/*.exe
+backend/**/*.log
+backend/**/*.cache
+backend/**/project.lock.json
+backend/**/*.dbmdl
+backend/**/*.jfm
+backend/**/riderModule.iml
+
+# Angular - Frontend
+frontend/angular/dist
+frontend/angular/tmp
+frontend/angular/out-tsc
+frontend/angular/bazel-out
+frontend/angular/node_modules
+frontend/angular/.angular/cache
+frontend/angular/.sass-cache
+frontend/angular/connect.lock
+frontend/angular/coverage
+frontend/angular/libpeerconnection.log
+frontend/angular/testem.log
+frontend/angular/typings
+
+# Angular - Logs
+frontend/angular/npm-debug.log
+frontend/angular/yarn-debug.log
+frontend/angular/yarn-error.log
+
+# Angular - IDE
+frontend/angular/.idea
+frontend/angular/.project
+frontend/angular/.classpath
+frontend/angular/.c9/
+frontend/angular/*.launch
+frontend/angular/*.sublime-workspace
+frontend/angular/.history/*
+
+# Dependencies
+**/node_modules/
+**/packages/
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/package-lock.json
+**/yarn.lock
+
+# Test files
+**/coverage/
+**/TestResults/
+**/*.trx
+**/*.coverage
+**/*.coveragexml
+
+# Build results
+**/[Dd]ebug/
+**/[Dd]ebugPublic/
+**/[Rr]elease/
+**/[Rr]eleases/
+**/x64/
+**/x86/
+**/build/
+**/bld/
+**/[Bb]in/
+**/[Oo]bj/
+**/msbuild.log
+**/msbuild.err
+**/msbuild.wrns
