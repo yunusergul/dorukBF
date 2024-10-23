@@ -11,8 +11,8 @@ server {
         proxy_cache_bypass $http_upgrade;
     }
 
-    location /api/workorder/durations {
-        proxy_pass http://backend:${BACKEND_PORT}/api/workorder/durations;
+    location /api/ {
+        proxy_pass http://backend:${BACKEND_PORT}/api/;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
     }
