@@ -11,3 +11,8 @@ To start your project, follow these steps:
 
    ```bash
    docker compose up
+
+You can access the project at [http://localhost:8080](http://localhost:8080). The port can be changed in the .env file using the NGINX_PORT variable. After modifying the port, make sure to run the following command to rebuild and restart the containers:
+
+   ```bash
+   docker compose up --build
