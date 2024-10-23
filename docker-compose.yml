@@ -15,10 +15,12 @@ services:
       - ./backend/netCore:/app
       - /app/obj
       - /app/bin
-    ports:
-      - "${BACKEND_PORT}:${BACKEND_PORT}"
+    expose:
+      - "${BACKEND_PORT}"
     env_file:
       - ./.env
+    networks:
+      - app_network
 
   frontend:
     build:
@@ -31,13 +33,15 @@ services:
     volumes:
       - ./frontend/angular:/app
       - /app/node_modules
-    ports:
-      - "${FRONTEND_PORT}:${FRONTEND_PORT}"
+    expose:
+      - "${FRONTEND_PORT}"
     environment:
       NODE_ENV: ${NODE_ENV}
       CHOKIDAR_USEPOLLING: ${CHOKIDAR_USEPOLLING}
     env_file:
       - ./.env
+    networks:
+      - app_network
 
   nginx:
     image: nginx:alpine
@@ -52,7 +56,9 @@ services:
     env_file:
       - ./.env
     entrypoint: ["/bin/sh", "/entrypoint.sh"]
+    networks:
+      - app_network
 
 networks:
-  default:
+  app_network:
     driver: bridge
